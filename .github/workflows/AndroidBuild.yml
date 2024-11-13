@@ -26,6 +26,17 @@ jobs:
       - name: Build with Gradle
         run: .\gradlew build  # Windows uses .\gradlew (instead of ./gradlew on Linux/Mac)
 
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest
+
+                # Step 7: Upload test results
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+                    name: test-results
+                    path: app/build/test-results/testDebugUnitTest/
+
+
       # Step 4: Upload the APK build artifact
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.4.3
