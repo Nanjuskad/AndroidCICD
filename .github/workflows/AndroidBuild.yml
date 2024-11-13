@@ -13,6 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.0
 
+
+      - name: Use local AndroidBuild
+        uses: ./.github/actions/AndroidBuild
+
       - name: Setup Java JDK
         uses: actions/setup-java@v3.13.0
         with:
